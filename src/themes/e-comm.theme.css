@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 .spacer {
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -19,6 +20,9 @@ mat-toolbar-row {
 
 .fixed-header {
     text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 2;
 }
 
 .title-web {
@@ -27,4 +31,16 @@ mat-toolbar-row {
 
 .title-mobile {
     font-size: 12px;
+}
+
+.scroll-text {
+    font-size: 50px;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Yellowtail', cursive;
 }

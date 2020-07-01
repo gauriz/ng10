@@ -2,8 +2,9 @@
     (onMove)="onmoveFn($event)">
 
     <ngu-item *nguCarouselDef="let item; index as i; let ani = animate">
-        <div class="bannerStyle" [style.background]="'url(' + item + ')'">
+        <div class="bannerStyle">
             <img [src]='item'>
+            <!-- <div class="centered">Centered</div> -->
         </div>
     </ngu-item>
 

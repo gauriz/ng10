@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="fixed-header">
+<mat-toolbar color="primary"  style="z-index:3;">
     <mat-toolbar-row>
         <div class='spacer' [class.title-web]='webDevice' [class.title-mobile]='!webDevice'> My ng10 E-comm App</div>
         <button mat-icon-button (click)='closeSideNavigation()'>
@@ -8,8 +8,9 @@
 </mat-toolbar>
 
 <mat-selection-list [multiple]="false" (selectionChange)='selectedValue($event)' [(ngModel)]="selectedNav">
-    <mat-list-option *ngFor="let option of sideNavOptions" [value]="option" [class.selected]='selectedNav[0].text === option.text'>
-        {{option.text}} 
+    <mat-list-option *ngFor="let option of sideNavOptions" [value]="option"
+        [class.selected]='selectedNav[0].text === option.text'>
+        {{option.text}}
         <mat-divider></mat-divider>
     </mat-list-option>
 </mat-selection-list>

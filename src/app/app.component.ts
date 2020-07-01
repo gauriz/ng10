@@ -15,7 +15,7 @@ export class AppComponent {
   webDevice = true;
   constructor(breakpointObserver: BreakpointObserver, util: UtilityService) {
     breakpointObserver.observe([
-      Breakpoints.Tablet,
+      // Breakpoints.Tablet,
       Breakpoints.Handset
     ]).subscribe(result => {
       if (result.matches) {
@@ -23,7 +23,8 @@ export class AppComponent {
       } else {
         this.webDevice = true;
       }
-      util.webDevice = this.webDevice;
+      console.log(this.webDevice);
+      util.emit({ webDevice: this.webDevice });
     });
   }
 
