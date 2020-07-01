@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="fixed-header">
+    <mat-toolbar-row>
+        <div class='spacer' [class.title-web]='webDevice' [class.title-mobile]='!webDevice'> My ng10 E-comm App</div>
+        <button mat-icon-button (click)='closeSideNavigation()'>
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-selection-list #shoes [multiple]="false" (selectionChange)='selectedValue($event)'>
+    <mat-list-option *ngFor="let option of sideNavOptions" [value]="option">
+        {{option.text}}
+        <mat-divider></mat-divider>
+    </mat-list-option>
+</mat-selection-list>
