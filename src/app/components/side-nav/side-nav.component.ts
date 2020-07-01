@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -6,28 +7,30 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
-  @Output()
-  closeSideNav = new EventEmitter<any>();
+  @Output() closeSideNav = new EventEmitter<any>();
   @Input() webDevice = true;
-
+  selectedNav = [];
   sideNavOptions = [{
     text: 'Home',
     redirectUrl: ''
   }, {
     text: 'Profile',
-    redirectUrl: ''
+    redirectUrl: 'profile'
   }, {
     text: 'Wishlist',
-    redirectUrl: ''
+    redirectUrl: 'wishlist'
   }, {
     text: 'Cart',
-    redirectUrl: ''
+    redirectUrl: 'cart'
   }, {
     text: 'Home is where the heart is (;',
     redirectUrl: ''
   }];
 
+  constructor(private router: Router) { }
+
   ngOnInit(): void {
+    this.selectedNav = [this.sideNavOptions[0]];
   }
 
   closeSideNavigation(): void {
@@ -35,6 +38,8 @@ export class SideNavComponent implements OnInit {
   }
 
   selectedValue(event): void {
-    console.log(event.option.value);
+    const menuSelected = event.option.value;
+    this.router.navigate([menuSelected.redirectUrl]);
+    this.closeSideNav.emit(true);
   }
 }

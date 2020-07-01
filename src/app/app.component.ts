@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { UtilityService } from './common/services/utility.service'
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,7 @@ export class AppComponent {
 
   reason = '';
   webDevice = true;
-  constructor(breakpointObserver: BreakpointObserver) {
-    // const isSmallScreen = breakpointObserver.isMatched('(max-width: 599px)');
+  constructor(breakpointObserver: BreakpointObserver, util: UtilityService) {
     breakpointObserver.observe([
       Breakpoints.Tablet,
       Breakpoints.Handset
@@ -23,11 +23,8 @@ export class AppComponent {
       } else {
         this.webDevice = true;
       }
+      util.webDevice = this.webDevice;
     });
-
-  }
-
-  ngOnInit(): void {
   }
 
   close(reason: string): void {
