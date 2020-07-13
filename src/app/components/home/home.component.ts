@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   webDevice = false;
   categories = [];
   tempData: any[];
+  countDown;
 
   constructor(utilityService: UtilityService) {
     if (typeof utilityService.webDevice !== 'undefined') {
@@ -28,30 +29,20 @@ export class HomeComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.categories = [{
-      image: 'assets/categoryHairbow.jpg',
-      heading: 'Hairbows'
-    }, {
-      image: 'assets/categoryHandBags.jpg',
-      heading: 'Handbags'
-    }, {
-      image: 'assets/categoryPhones.jpg',
-      heading: 'Mobile phones'
-    }, {
-      image: 'assets/categoryFurniture.jpg',
-      heading: 'Furniture'
-    }, {
-      image: 'assets/categoryUtensils.jpg',
-      heading: 'Utensils'
-    }, {
-      image: 'assets/categoryCloths.jpg',
-      heading: 'Fashion Wears'
-    }, {
-      image: 'assets/categoryCosmetics.jpg',
-      heading: 'Cosmetics'
-    }, {
-      image: 'assets/categoryBathItems.jpg',
-      heading: 'Bath Produts'
-    }];
+    this.countDownTimer();
+  }
+
+  countDownTimer(): void {
+    setInterval(() => {
+      const countDownDate = new Date(2020, 6, 14, 59, 59, 59).getTime();
+      console.log();
+      const now = new Date().getTime();
+      const timeleft = countDownDate - now;
+      // const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+      this.countDown = hours + ':' + minutes + ':' + seconds + ' Left';
+    }, 1000);
   }
 }

@@ -1,10 +1,9 @@
 <ngu-carousel class='carousel' [inputs]="carouselBanner" [dataSource]="carouselTileItems$ | async"
     (onMove)="onmoveFn($event)">
 
-    <ngu-item *nguCarouselDef="let item; index as i; let ani = animate">
+    <ngu-item *nguCarouselDef="let item; index as i;">
         <div class="bannerStyle">
             <img [src]='item'>
-            <!-- <div class="centered">Centered</div> -->
         </div>
     </ngu-item>
 

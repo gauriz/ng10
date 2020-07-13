@@ -1,22 +1,14 @@
-mat-grid-tile {
-  background: lightblue;
+.green {
+    color: green;
 }
 
-.m10 {
-  margin: 10px;
+.b {
+    font-weight: bold;
 }
 
-.bannerStyle {
-  width: 99%;
-  max-height: 100px;
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-.bannerStyle img {
-  width: 99%;
-  max-height: 100px;
-  object-fit: cover;
-  overflow: hidden;
+.img-wrapper {
+    position: relative;
+    margin: 0 auto;
+    height: 150px;
+    width: 150px;
 }

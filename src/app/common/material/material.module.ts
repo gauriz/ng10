@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatExpansionModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatGridListModule
+    MatGridListModule,
+    MatBadgeModule
   ],
   exports: [
     MatToolbarModule,
@@ -42,7 +44,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatExpansionModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatGridListModule
+    MatGridListModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule { }

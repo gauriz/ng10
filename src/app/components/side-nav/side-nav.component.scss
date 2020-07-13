@@ -1,7 +1,14 @@
-.selected {
-    background-color: #20b2aa54;
-}
+// .selected {
+//     background-color: #20b2aa54;
+// }
 
 .deselected {
     background-color: transparent;
+}
+
+.header {
+    z-index: 3;
+    background-image: url("/assets/header.jpg") !important;
+    background-size: cover !important;
+    color: #fff;
 }
