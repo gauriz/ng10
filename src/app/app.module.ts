@@ -13,6 +13,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { NguCarouselModule } from '@ngu/carousel';
 import 'hammerjs';
 import { CarouselComponent } from './components/home/carousel/carousel.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CarouselComponent } from './components/home/carousel/carousel.component
     ProfileComponent,
     WishlistComponent,
     CartComponent,
-    CarouselComponent
+    CarouselComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

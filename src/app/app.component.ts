@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { UtilityService } from './common/services/utility.service'
+import { UtilityService } from './common/services/utility.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from './components/login/login.component'
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export class AppComponent {
 
   reason = '';
   webDevice = true;
-  constructor(breakpointObserver: BreakpointObserver, util: UtilityService) {
+  constructor(breakpointObserver: BreakpointObserver, util: UtilityService, private dialog: MatDialog) {
     breakpointObserver.observe([
       // Breakpoints.Tablet,
       Breakpoints.Handset
@@ -26,6 +28,10 @@ export class AppComponent {
       console.log(this.webDevice);
       util.emit({ webDevice: this.webDevice });
     });
+  }
+
+  login(): void {
+    this.dialog.open(LoginComponent);
   }
 
   close(reason: string): void {
