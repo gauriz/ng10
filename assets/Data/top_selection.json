@@ -1,0 +1,50 @@
+[
+    {
+        "catName": "Choppers & Slicers",
+        "catSub": "Hot picks",
+        "url": "assets\\Top_Picks\\choppers.jpg",
+        "catCode": "Choppers_Slicers"
+    },
+    {
+        "catName": "Frames",
+        "catSub": "Most Popular!",
+        "url": "assets\\Top_Picks\\eyeWear.jpg",
+        "catCode": "Frames"
+    },
+    {
+        "catName": "Kitchen Applicances",
+        "catSub": "Explore Now!",
+        "url": "assets\\Top_Picks\\kitchen.jpg",
+        "catCode": "Kitchen_Appliances"
+    },
+    {
+        "catName": "Wrist Watches",
+        "catSub": "Shop Now!",
+        "url": "assets\\Top_Picks\\watches.jpg",
+        "catCode": "Wrist_Watches"
+    },
+    {
+        "catName": "Lens Hoods",
+        "catSub": "Shop Now!",
+        "url": "assets\\Top_Picks\\lensHood.jpg",
+        "catCode": "Lens_Hoods"
+    },
+    {
+        "catName": "Eye Makeup Combo",
+        "catSub": "Bestsellers",
+        "url": "assets\\Top_Picks\\eyemakeup.jpg",
+        "catCode": "EyeMakeup_Combo"
+    },
+    {
+        "catName": "Head band",
+        "catSub": "Explore now",
+        "url": "assets\\Top_Picks\\headBands.jpg",
+        "catCode": "Head_Band"
+    },
+    {
+        "catName": "Trimmer",
+        "catSub": "Hurry!",
+        "url": "assets\\Top_Picks\\trimmer.jpg",
+        "catCode": "Trimmer"
+    }
+]

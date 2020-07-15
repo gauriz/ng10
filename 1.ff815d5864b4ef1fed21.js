@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{DZYb:function(n,o,t){"use strict";t.r(o),t.d(o,"ProductsModule",(function(){return e}));var r=t("ofXK"),c=t("fXoL");let e=(()=>{class n{}return n.\u0275mod=c.Jb({type:n}),n.\u0275inj=c.Ib({factory:function(o){return new(o||n)},imports:[[r.c]]}),n})()}}]);
