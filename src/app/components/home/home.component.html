@@ -11,51 +11,17 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="row">
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
+                        <div class="col-lg-6 col-xl-3 col-md-6 col-6"
+                            *ngFor='let deal of dealsOfTheDay; let index = index;'
+                            [routerLink]="'../products/Hot_Deals/' + deal.catCode">
+                            <div class='pointer' *ngIf='index < 4'>
                                 <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\headphones.jpg">
+                                    <img class="img-deals" [src]="deal.url">
                                 </div>
                                 <div class="user-content">
-                                    <p class="m-b-0 b">Headphones and Speakers</p>
-                                    <p class="m-b-0 green">Upto 50% off</p>
-                                    <p class="m-b-0 text-muted">JBL, Sony & More</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\beverages.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Health Drinks & Beverages</p>
-                                    <p class="m-b-0 green">Extra 5% Off</p>
-                                    <p class="m-b-0 text-muted">Bournvita, Nescafe & More</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\homeDecor.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Home Decor Range</p>
-                                    <p class="m-b-0 green">From ₹49</p>
-                                    <p class="m-b-0 text-muted">Stickers & more</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\metronaut.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Metronaut, Provogue & More</p>
-                                    <p class="m-b-0 green">Upto80%Off+Extra5%Off</p>
-                                    <p class="m-b-0 text-muted">Tops, Dresses & More</p>
+                                    <p class="m-b-0 b">{{deal.catName}}</p>
+                                    <p class="m-b-0 green">{{deal.offer}}</p>
+                                    <p class="m-b-0 text-muted">{{deal.catSub}}</p>
                                 </div>
                             </div>
                         </div>
@@ -63,51 +29,17 @@
                 </div>
                 <div class="col-xl-6">
                     <div class="row">
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
+                        <div class="col-lg-6 col-xl-3 col-md-6 col-6"
+                            *ngFor='let deal of dealsOfTheDay; let index = index;'
+                            [routerLink]="'../products/Hot_Deals/' + deal.catCode">
+                            <div class='pointer' *ngIf='index >= 4 && index < 8'>
                                 <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\shoes.jpg">
+                                    <img class="img-deals" [src]="deal.url">
                                 </div>
                                 <div class="user-content">
-                                    <p class="m-b-0 b">ADIDAS, Puma...</p>
-                                    <p class="m-b-0 green">Upto 50%+Extra 5% Off</p>
-                                    <p class="m-b-0 text-muted">Walking, Running Shoes...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\blackzone.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Blackzone & Hicell keypad Phones</p>
-                                    <p class="m-b-0 green">Extra Rs100 off</p>
-                                    <p class="m-b-0 text-muted">Walking, Running Shoes...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\watch.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Fastrack, Timex & more</p>
-                                    <p class="m-b-0 green">Upto 70%+Extra 5% off</p>
-                                    <p class="m-b-0 text-muted">#Wear your Style</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Hot_Deals\tshirt.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">T-Shirts & Jeans</p>
-                                    <p class="m-b-0 green">Upto 60%+Extra 5%Off</p>
-                                    <p class="m-b-0 text-muted">Grab Now</p>
+                                    <p class="m-b-0 b">{{deal.catName}}</p>
+                                    <p class="m-b-0 green">{{deal.offer}}</p>
+                                    <p class="m-b-0 text-muted">{{deal.catSub}}</p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +49,7 @@
             </div>
             <mat-card-actions style='text-align: right;'>
                 <button mat-button style="background-color: #3f51b5;
-                color: white;">VIEW ALL</button>
+                color: white;" routerLink="../products/Hot_Deals">VIEW ALL</button>
             </mat-card-actions>
         </mat-card>
     </div>
@@ -136,47 +68,16 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="row">
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
+                        <div class="col-lg-6 col-xl-3 col-md-6 col-6"
+                            *ngFor='let deal of topSelection; let index = index;'
+                            [routerLink]="'../products/Top_Selection/' + deal.catCode">
+                            <div class='pointer' *ngIf='index < 4'>
                                 <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\choppers.jpg">
+                                    <img class="img-deals" [src]="deal.url">
                                 </div>
                                 <div class="user-content">
-                                    <p class="m-b-0 b">Choppers & Slicers</p>
-                                    <p class="m-b-0 green">Hot picks</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\eyeWear.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Frames</p>
-                                    <p class="m-b-0 green">Most Popular!</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\kitchen.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Kitchen Applicances</p>
-                                    <p class="m-b-0 green">Explore Now!</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\watches.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Wrist Watches</p>
-                                    <p class="m-b-0 green">Shop Now!</p>
+                                    <p class="m-b-0 b">{{deal.catName}}</p>
+                                    <p class="m-b-0 text-muted">{{deal.catSub}}</p>
                                 </div>
                             </div>
                         </div>
@@ -184,47 +85,16 @@
                 </div>
                 <div class="col-xl-6">
                     <div class="row">
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
+                        <div class="col-lg-6 col-xl-3 col-md-6 col-6"
+                            *ngFor='let deal of topSelection; let index = index;'
+                            [routerLink]="'../products/Top_Selection/' + deal.catCode">
+                            <div class='pointer' *ngIf='index >= 4 && index < 8'>
                                 <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\lensHood.jpg">
+                                    <img class="img-deals" [src]="deal.url">
                                 </div>
                                 <div class="user-content">
-                                    <p class="m-b-0 b">Lens Hoods</p>
-                                    <p class="m-b-0 green">Shop Now!</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\eyemakeup.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Eye Makeup Combo</p>
-                                    <p class="m-b-0 green">Bestsellers</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\headBands.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Head band</p>
-                                    <p class="m-b-0 green">Explore now</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-3 col-md-6 col-6">
-                            <div class='pointer'>
-                                <div class='img-wrapper'>
-                                    <img class="img-deals" src="assets\Top_Picks\trimmer.jpg">
-                                </div>
-                                <div class="user-content">
-                                    <p class="m-b-0 b">Trimmer</p>
-                                    <p class="m-b-0 green">Hurry!</p>
+                                    <p class="m-b-0 b">{{deal.catName}}</p>
+                                    <p class="m-b-0 text-muted">{{deal.catSub}}</p>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +104,7 @@
             </div>
             <mat-card-actions style='text-align: right;'>
                 <button mat-button style="background-color: #3f51b5;
-                color: white;">VIEW ALL</button>
+                color: white;" routerLink="../products/Top_Selection">VIEW ALL</button>
             </mat-card-actions>
         </mat-card>
     </div>
@@ -242,86 +112,14 @@
 <div class='page-wrapper'>
     <div class='page-body'>
         <div class="row users-card">
-            <div class="col-lg-6 col-xl-3 col-md-6">
+            <div class="col-lg-6 col-xl-3 col-md-6" *ngFor='let cat of categories'>
                 <div class="card rounded-card user-card">
                     <div class="card-block">
                         <div class="img-hover">
-                            <img alt="round-img" class="img-fluid img-radius" src="assets/categoryHairbow.jpg">
+                            <img alt="round-img" class="img-fluid img-radius" [src]="cat.url">
                         </div>
                         <div class="user-content">
-                            <p class="m-b-0 text-muted">Hair Bows</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3 col-md-6">
-                <div class="card rounded-card user-card">
-                    <div class="card-block">
-                        <div class="img-hover">
-                            <img alt="round-img" class="img-fluid img-radius" src="assets/categoryHandBags.jpg">
-                        </div>
-                        <div class="user-content">
-                            <p class="m-b-0 text-muted">Hand Bags</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3 col-md-6">
-                <div class="card rounded-card user-card">
-                    <div class="card-block">
-                        <div class="img-hover">
-                            <img alt="round-img" class="img-fluid img-radius" src="assets/categoryCosmetics.jpg">
-                        </div>
-                        <div class="user-content">
-                            <p class="m-b-0 text-muted"> Cosmetics </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3 col-md-6">
-                <div class="card rounded-card user-card">
-                    <div class="card-block">
-                        <div class="img-hover">
-                            <img alt="round-img" class="img-fluid img-radius" src="assets/categoryCloths.jpg">
-                        </div>
-                        <div class="user-content">
-                            <p class="m-b-0 text-muted">Clothing and summer wear</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3 col-md-6">
-                <div class="card rounded-card user-card">
-                    <div class="card-block">
-                        <div class="img-hover">
-                            <img alt="round-img" class="img-fluid img-radius" src="assets/categoryUtensils.jpg">
-                        </div>
-                        <div class="user-content">
-                            <p class="m-b-0 text-muted">Utensils and Blah</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3 col-md-6">
-                <div class="card rounded-card user-card">
-                    <div class="card-block">
-                        <div class="img-hover">
-                            <img alt="round-img" class="img-fluid img-radius" src="assets/categoryBathItems.jpg">
-                        </div>
-                        <div class="user-content">
-                            <p class="m-b-0 text-muted">Bath Items</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3 col-md-6">
-                <div class="card rounded-card user-card">
-                    <div class="card-block">
-                        <div class="img-hover">
-                            <img alt="round-img" class="img-fluid img-radius" src="assets/Gym_Equipment_large.jpg">
-                        </div>
-                        <div class="user-content">
-                            <p class="m-b-0 text-muted">Gym Equipment</p>
+                            <p class="m-b-0 text-muted">{{cat.catName}}</p>
                         </div>
                     </div>
                 </div>

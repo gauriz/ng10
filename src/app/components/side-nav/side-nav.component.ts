@@ -12,7 +12,7 @@ export class SideNavComponent implements OnInit {
   selectedNav = [];
   sideNavOptions = [{
     text: 'Home',
-    redirectUrl: ''
+    redirectUrl: 'home'
   }, {
     text: 'Profile',
     redirectUrl: 'profile'
@@ -24,7 +24,7 @@ export class SideNavComponent implements OnInit {
     redirectUrl: 'cart'
   }, {
     text: 'Home is where the heart is (;',
-    redirectUrl: ''
+    redirectUrl: 'home'
   }];
 
   constructor(private router: Router) { }
