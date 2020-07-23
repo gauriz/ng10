@@ -1,4 +1,4 @@
-Live updates at : https://gauriz.github.io/ng10/home
+Live updates at : https://gauriz.github.io/ng10
 
 # NG10 EComm Application
 
