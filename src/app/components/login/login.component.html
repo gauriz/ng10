@@ -75,7 +75,7 @@
 
     <mat-card class="full-width" *ngIf='user && user.provider'>
         <mat-card-header>
-            <img mat-card-avatar [src]='user.photoUrl'>
+            <img mat-card-avatar [src]='user.photoUrl' *ngIf='user.photoUrl'>
             <mat-card-title>{{user.firstName}}</mat-card-title>
             <mat-card-subtitle>{{user.provider}}</mat-card-subtitle>
         </mat-card-header>

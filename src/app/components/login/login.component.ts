@@ -105,7 +105,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('name', signIn.name);
     localStorage.setItem('photoUrl', signIn.photoUrl);
     localStorage.setItem('email', signIn.email);
-    localStorage.setItem('firstName', signIn.firstName);
+    localStorage.setItem('firstName', signIn.firstName ? signIn.firstName : signIn.name);
     localStorage.setItem('lastName', signIn.lastName);
     localStorage.setItem('authToken', signIn.authToken);
     localStorage.setItem('provider', signIn.provider);
