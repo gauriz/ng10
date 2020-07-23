@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
     this.authService.initState.subscribe((init) => {
       console.log(init);
     });
+    this.authService.authState.subscribe(user => {
+      this.user = user;
+    });
     if (this.loggedIn) {
       this.user = new SocialUser();
       this.user.provider = localStorage.getItem('provider');
@@ -54,27 +57,35 @@ export class LoginComponent implements OnInit {
     try {
       const googleSignIn = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
       if (googleSignIn.provider === 'GOOGLE') {
-        localStorage.setItem('loggedIn', '1');
-        localStorage.setItem('name', googleSignIn.name);
-        localStorage.setItem('photoUrl', googleSignIn.photoUrl);
-        localStorage.setItem('email', googleSignIn.email);
-        localStorage.setItem('firstName', googleSignIn.firstName);
-        localStorage.setItem('lastName', googleSignIn.lastName);
-        localStorage.setItem('authToken', googleSignIn.authToken);
-        localStorage.setItem('provider', googleSignIn.provider);
-        this.dialogRef.close(true);
+        this.saveDataInlocalStorage(googleSignIn);
       }
     } catch (error) {
       console.log(error);
     }
   }
 
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  async signInWithFB(): Promise<void> {
+    try {
+      const facebookSignin = await this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+      console.log(facebookSignin)
+      if (facebookSignin.provider === 'FACEBOOK') {
+        this.saveDataInlocalStorage(facebookSignin);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  signInWithAmazon(): void {
-    this.authService.signIn(AmazonLoginProvider.PROVIDER_ID);
+  async signInWithAmazon(): Promise<void> {
+    try {
+      const amzSignin = await this.authService.signIn(AmazonLoginProvider.PROVIDER_ID);
+      console.log(amzSignin);
+      if (amzSignin.provider === 'AMAZON') {
+        this.saveDataInlocalStorage(amzSignin);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   signOut(): void {
@@ -87,5 +98,17 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem('lastName');
     localStorage.removeItem('authToken');
     this.dialogRef.close();
+  }
+
+  saveDataInlocalStorage(signIn): void {
+    localStorage.setItem('loggedIn', '1');
+    localStorage.setItem('name', signIn.name);
+    localStorage.setItem('photoUrl', signIn.photoUrl);
+    localStorage.setItem('email', signIn.email);
+    localStorage.setItem('firstName', signIn.firstName);
+    localStorage.setItem('lastName', signIn.lastName);
+    localStorage.setItem('authToken', signIn.authToken);
+    localStorage.setItem('provider', signIn.provider);
+    this.dialogRef.close(true);
   }
 }
