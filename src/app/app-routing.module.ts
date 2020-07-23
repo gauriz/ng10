@@ -7,18 +7,23 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'wishlist', component: WishlistComponent },
   {
-    path: 'products/:category/:productCat?',
-    loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
-  },
-  {
-    path: 'products/:category',
-    loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
+    path: '',
+    component: AppComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'wishlist', component: WishlistComponent },
+      {
+        path: 'products/:category/:productCat?',
+        loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
+      },
+      {
+        path: 'products/:category',
+        loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
+      }
+    ]
   }
 ];
 
