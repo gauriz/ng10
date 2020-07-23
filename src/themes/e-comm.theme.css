@@ -95,7 +95,8 @@ mat-toolbar-row {
     height: 85%;
 }
 
-.rounded-card img, .user-img img {
+.rounded-card img,
+.user-img img {
     margin: 0 auto;
     display: block;
     width: 100%;
@@ -148,4 +149,8 @@ img {
 .img-deals:hover {
     transform: scale(1.2);
     transition: all ease-in .3s;
+}
+
+.center {
+    text-align: center;
 }

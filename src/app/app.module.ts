@@ -14,7 +14,13 @@ import { NguCarouselModule } from '@ngu/carousel';
 import 'hammerjs';
 import { CarouselComponent } from './components/home/carousel/carousel.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  AmazonLoginProvider,
+} from 'angularx-social-login';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +38,36 @@ import { LoginComponent } from './components/login/login.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    NguCarouselModule
+    NguCarouselModule,
+    SocialLoginModule,
+    HttpClientModule 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '77711633392-i3etqmbk06mp8d0dq825nrpv09egij4b.apps.googleusercontent.com'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('310945350314663'),
+          },
+          {
+            id: AmazonLoginProvider.PROVIDER_ID,
+            provider: new AmazonLoginProvider(
+              'amzn1.application-oa2-client.3661e0d3a4a84b62a87b4200a89c4607'
+            ),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

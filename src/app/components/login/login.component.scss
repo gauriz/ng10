@@ -1,5 +1,5 @@
 .container-cls {
-    height: 60vh;
+    height: 46vh;
     width: 40vh;
     min-width: 290px;
 }
@@ -9,8 +9,16 @@
     height: 100%;
 }
 
-::ng-deep .mat-dialog-container {
-    padding: 0px !important;
+::ng-deep {
+    .mat-dialog-container {
+        padding: 0px !important;
+    }
+    .mat-tab-body-wrapper {
+        height: 100%;
+    }
+    .mat-tab-group {
+        height: 100%;
+    }
 }
 
 .stretch {
@@ -19,4 +27,16 @@
 
 .mt-40 {
     margin-top: 40px !important;
+}
+
+.mb-40 {
+    margin-bottom: 40px !important;
+}
+
+.mt-63 {
+    margin-top: 63px !important;
+}
+
+.mb-63 {
+    margin-bottom: 63px !important;
 }

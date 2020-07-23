@@ -1,50 +1,98 @@
 <div class="container-cls">
-    <mat-card class="full-width">
-
+    <mat-card class="full-width" *ngIf='!loggedIn'>
         <mat-tab-group animationDuration="1000ms" mat-stretch-tabs>
-            <mat-tab label="Sign In">Sign In
-                <form class="mt-40">
-                    <mat-form-field class="stretch">
-                        <mat-label>Email ID</mat-label>
+            <mat-tab label="Sign In">
+                <form class="mt-40 mb-40 center">
+                    <mat-form-field class="stretch" appearance="outline">
+                        <mat-label>Email ID / User Name / Phone Number </mat-label>
                         <input matInput type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-                        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="email=''">
+                        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
-                    <mat-form-field class="stretch">
+                    <mat-form-field class="stretch" appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-                        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="password=''">
+                        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
+                    <button mat-raised-button color="primary">SIGN IN</button>
                 </form>
+                <mat-divider></mat-divider>
+                <div class="mt-63 mb-63 center">
+                    <button mat-icon-button (click)='signInWithGoogle()' style="    margin: 20px;">
+                    <mat-icon style="width: 50px; height:30px"
+                    svgIcon="google"></mat-icon>       </button>
+
+                    <button mat-icon-button (click)='signInWithFB()' style="    margin: 20px;">
+                    <mat-icon style="width: 50px; height:30px"
+                    svgIcon="facebook"></mat-icon>       </button>
+                    <button mat-icon-button (click)='signInWithAmazon()' style="    margin: 20px;">
+                    <mat-icon style="width: 50px; height:30px"
+                    svgIcon="amazon"></mat-icon>       </button> </div>
             </mat-tab>
-            <mat-tab label="Sign Up">Sign Up
-                <form class="mt-40">
-                    <mat-form-field class="stretch">
-                        <mat-label>Email ID</mat-label>
+            <mat-tab label="Sign Up">
+                <form class="mt-40 mb-40 center">
+                    <mat-form-field class="stretch" appearance="outline">
+                        <mat-label>Email ID / Phone Number</mat-label>
                         <input matInput type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-                        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="email=''">
+                        <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
-                    <mat-form-field class="stretch">
-                        <mat-label>Password</mat-label>
+                    <mat-form-field class="stretch" appearance="outline">
+                        <mat-label>User Name</mat-label>
                         <input matInput type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-                        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear"
-                            (click)="password=''">
+                        <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
+                    <mat-form-field class="stretch" appearance="outline">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput [(ngModel)]="fullName" [ngModelOptions]="{standalone: true}">
+                        <button mat-button *ngIf="fullName" matSuffix mat-icon-button aria-label="Clear" (click)="fullName=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <button mat-raised-button color="primary">SIGN UP</button>
                 </form>
+                <mat-divider></mat-divider>
+                <div class="mt-40 mb-40 center">
+                    <button mat-icon-button (click)='signInWithGoogle()' style="    margin: 20px;">
+                    <mat-icon style="width: 50px; height:30px"
+                    svgIcon="google"></mat-icon>       </button>
+
+                    <button mat-icon-button (click)='signInWithFB()' style="    margin: 20px;">
+                    <mat-icon style="width: 50px; height:30px"
+                    svgIcon="facebook"></mat-icon>       </button>
+                    <button mat-icon-button (click)='signInWithAmazon()' style="    margin: 20px;">
+                    <mat-icon style="width: 50px; height:30px"
+                    svgIcon="amazon"></mat-icon>       </button> </div>
             </mat-tab>
         </mat-tab-group>
-
-
-
     </mat-card>
+
+    <mat-card class="full-width" *ngIf='user && user.provider'>
+        <mat-card-header>
+            <img mat-card-avatar [src]='user.photoUrl'>
+            <mat-card-title>{{user.firstName}}</mat-card-title>
+            <mat-card-subtitle>{{user.provider}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="mt-40 mb-40 center">
+                <mat-form-field class="stretch" appearance="outline">
+                    <mat-label>User</mat-label>
+                    <input matInput type="text" [(ngModel)]='user.name' [ngModelOptions]="{standalone: true}" readonly>
+                </mat-form-field>
+                <mat-form-field class="stretch" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" [(ngModel)]='user.email' [ngModelOptions]="{standalone: true}" readonly>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" (click)='signOut()'>LOGOUT</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
 </div>
